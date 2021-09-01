@@ -11,7 +11,7 @@ import SwiftUI
 struct proun_ios_exercise_swiftuiApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
