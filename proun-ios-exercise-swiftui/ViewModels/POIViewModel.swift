@@ -10,6 +10,8 @@ import Foundation
 class POIViewModel: ObservableObject {
     
     let requestManager = RequestManager()
+    @Published var pois: [POIModel] = []
+    @Published var districtCoordinates = ""
     
     init() {
 //        downloadData()
@@ -19,7 +21,13 @@ class POIViewModel: ObservableObject {
     func downloadData() {
         requestManager.getDistrictPOIs() {
             response in
-            print(response)
+            switch response {
+            case .success(let data):
+                self.pois = data.pois ?? []
+                self.districtCoordinates = data.coordinates ?? ""
+            case .error(let error):
+                print("*** \(error.localizedDescription)")
+            }
         }
     }
 }

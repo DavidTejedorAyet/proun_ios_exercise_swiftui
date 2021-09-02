@@ -11,7 +11,7 @@ class POIModel: BaseModel {
     var likesCount: Int?
     var eventsCount: Int?
     var newsCount: Int?
-    var id: String?
+    var id: Int?
     var image: MediaModel?
     var galleryImages: [MediaModel]?
     var latitude: Double?
@@ -19,7 +19,7 @@ class POIModel: BaseModel {
     var category: CategoryModel?
     var isPremium: Bool?
     var events: [EventModel]?
-    var news: [Any]? // No se especifica el valor de la clase
+    var news: [NewModel]? // No se especifica el valor de la clase
     
     private enum CodingKeys: String, CodingKey {
         case likesCount = "likes_count"
@@ -32,6 +32,8 @@ class POIModel: BaseModel {
         case longitude
         case category
         case isPremium = "premium"
+        case events
+        case news
         
     }
 }

@@ -27,6 +27,7 @@ struct NavbarView: View {
                 Text(city)
                     .font(Font.custom("TradeGothicLTStd-BdCn20", size: 25))
                     .foregroundColor(Color("NavbarText"))
+                    .textCase(.uppercase)
                     .padding(.top, 8) //Compensa un pequeño desajuste en la tipografía
                 
                 Spacer()

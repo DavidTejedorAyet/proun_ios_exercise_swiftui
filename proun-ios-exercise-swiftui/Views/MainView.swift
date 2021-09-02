@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     @State private var isShowingMap = true
     
-    var viewModel = POIViewModel()
+    @ObservedObject var viewModel = POIViewModel()
     
     var body: some View {
         VStack(spacing: 0) {
@@ -18,7 +18,7 @@ struct MainView: View {
             NavbarView()
             
             if isShowingMap {
-                MapView()
+                MapView(pois: $viewModel.pois, districtCoordinates: $viewModel.districtCoordinates)
             } else {
                 POIsListView()
             }
@@ -27,9 +27,9 @@ struct MainView: View {
             
         }
         
-//            .onAppear(){
-//                viewModel.downloadData()
-//            }
+            .onAppear(){
+                viewModel.downloadData()
+            }
     }
 }
 

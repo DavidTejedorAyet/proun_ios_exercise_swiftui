@@ -23,6 +23,16 @@ class DistrictPOIsResponse: BaseModel {
     
     private enum CodingKeys: String, CodingKey {
         case poisCount = "pois_count"
+        case eventsCount = "events_count"
+        case id
+        case name
+        case image
+        case galleryImages = "gallery_images"
+        case coordinates
+        case isFree = "is_free"
+        case video
+        case audio
+        case pois
     }
     
     
