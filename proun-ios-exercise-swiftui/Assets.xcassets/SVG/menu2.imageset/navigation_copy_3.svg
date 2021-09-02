@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33">
+    <defs>
+        <filter id="cxcxzzq3ma">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g filter="url(#cxcxzzq3ma)" transform="translate(-335 -96) translate(335 97)">
+                <g fill="#000" fill-rule="nonzero" transform="translate(4 5)">
+                    <path d="M22.286 0H8.57c-.946 0-1.714.82-1.714 1.833s.768 1.834 1.714 1.834h13.715c.946 0 1.714-.821 1.714-1.834C24 .821 23.232 0 22.286 0z"/>
+                    <ellipse cx="1.714" cy="1.833" rx="1.714" ry="1.833"/>
+                    <path d="M22.286 9.167H8.57c-.946 0-1.714.82-1.714 1.833s.768 1.833 1.714 1.833h13.715c.946 0 1.714-.82 1.714-1.833s-.768-1.833-1.714-1.833z"/>
+                    <ellipse cx="1.714" cy="11" rx="1.714" ry="1.833"/>
+                    <path d="M22.286 18.333H8.57c-.946 0-1.714.821-1.714 1.834 0 1.012.768 1.833 1.714 1.833h13.715c.946 0 1.714-.82 1.714-1.833s-.768-1.834-1.714-1.834z"/>
+                    <ellipse cx="1.714" cy="20.167" rx="1.714" ry="1.833"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
