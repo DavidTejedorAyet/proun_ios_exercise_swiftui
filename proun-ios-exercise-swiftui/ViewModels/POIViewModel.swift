@@ -13,6 +13,7 @@ class POIViewModel: ObservableObject {
     
     init() {
 //        downloadData()
+        
     }
     
     func downloadData() {

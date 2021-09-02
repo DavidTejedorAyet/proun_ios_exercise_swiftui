@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var isShowingMap = true
     
     var viewModel = POIViewModel()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .onAppear(){
-                viewModel.downloadData()
+        VStack(spacing: 0) {
+            
+            NavbarView()
+            
+            if isShowingMap {
+                MapView()
+            } else {
+                POIsListView()
             }
+            
+            TabbarView(isShowingMap: $isShowingMap)
+            
+        }
+        
+//            .onAppear(){
+//                viewModel.downloadData()
+//            }
     }
 }
 
