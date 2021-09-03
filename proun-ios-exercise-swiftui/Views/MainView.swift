@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     @State private var isShowingMap = true
-    
     @ObservedObject var viewModel = POIViewModel()
     
     var body: some View {
@@ -30,7 +29,7 @@ struct MainView: View {
                         .padding(.leading, 15)
                     
                     Spacer()
-
+                    
                     HStack(spacing: -2) {
                         Image("poi")
                             .resizable()
@@ -58,12 +57,18 @@ struct MainView: View {
             .frame(height: 50)
             
             if isShowingMap {
-                MapView(pois: $viewModel.pois, districtCoordinates: $viewModel.districtCoordinates)
+                MapView(pois: $viewModel.pois, districtCoordinates: $viewModel.districtCoordinates, detailPopUpDelegate: viewModel)
             } else {
-                POIsListView()
+                POIsListView(detailPopUpDelegate: viewModel)
             }
             
             TabbarView(isShowingMap: $isShowingMap)
+            
+            if viewModel.showPopUp {
+                withAnimation {
+                    POIDetailPopUp(viewModel: viewModel)
+                }
+            }
             
         }
         

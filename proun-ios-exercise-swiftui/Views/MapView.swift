@@ -10,24 +10,25 @@ import GoogleMaps
 
 struct MapView: UIViewRepresentable {
     
-//    @Binding var points: [POIModel]
     @Binding var pois: [POIModel]
     @Binding var districtCoordinates: String
 
+    var detailPopUpDelegate: POIDetailPopUpDelegate?
     var viewModel: MapViewModel = MapViewModel()
     
     func makeUIView(context: Context) -> GMSMapView {
 
         let mapView = GMSMapView(frame: .zero)
-        mapView.delegate = viewModel
         changeMapStyle(mapView: mapView)
         return mapView
     }
     
     func updateUIView(_ uiView: GMSMapView, context: Context) {
-        
+        uiView.delegate = viewModel
+
         uiView.clear()
         
+        viewModel.detailPopUpDelegate = detailPopUpDelegate
         viewModel.pois = self.pois
         viewModel.districtCoordinates = districtCoordinates
         

@@ -12,6 +12,8 @@ class POIModel: BaseModel {
     var eventsCount: Int?
     var newsCount: Int?
     var id: Int?
+    var name: String?
+    var description: String?
     var image: MediaModel?
     var galleryImages: [MediaModel]?
     var latitude: Double?
@@ -26,6 +28,8 @@ class POIModel: BaseModel {
         case eventsCount = "events_count"
         case newsCount = "news_count"
         case id
+        case name
+        case description
         case image
         case galleryImages = "gallery_images"
         case latitude

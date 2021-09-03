@@ -13,9 +13,12 @@ class POIViewModel: ObservableObject {
     
     @Published var pois: [POIModel] = []
     @Published var districtCoordinates = ""
-    @Published var districtName = "district_name"
-    @Published var poisCount = "0"
+    @Published var districtName = ""
+    @Published var poisCount = ""
      
+    @Published var showPopUp = false
+    @Published var selectedPOI: POIModel?
+    
     func downloadData() {
         requestManager.getDistrictPOIs() {
             response in
@@ -29,5 +32,12 @@ class POIViewModel: ObservableObject {
                 print("*** \(error.localizedDescription)")
             }
         }
+    }
+}
+
+extension POIViewModel : POIDetailPopUpDelegate {
+    func showDetailPopUp(with poi: POIModel) {
+        showPopUp.toggle()
+        self.selectedPOI = poi
     }
 }

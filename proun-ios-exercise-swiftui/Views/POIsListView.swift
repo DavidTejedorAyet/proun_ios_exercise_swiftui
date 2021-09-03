@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct POIsListView: View {
+    var detailPopUpDelegate: POIDetailPopUpDelegate?
+
     var body: some View {
         Color.red
     }
