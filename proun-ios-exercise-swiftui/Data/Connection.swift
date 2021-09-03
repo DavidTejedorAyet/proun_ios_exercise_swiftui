@@ -53,15 +53,6 @@ internal class Connection: ConnectionManager {
             if let urlResponse = response as? HTTPURLResponse {
                 httpStatus = urlResponse.statusCode
             }
-            
-            #if DEBUG
-            if let data = data  {
-                print("*** RESPONSE: \(url.absoluteString): \n\(String(bytes: data, encoding: .utf8) ?? "nil")")
-            }
-            else {
-                print("*** No data was received")
-            }
-            #endif
             completion(httpStatus, data)
         }
         dataTask.resume()

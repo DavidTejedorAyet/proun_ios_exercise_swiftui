@@ -6,15 +6,17 @@
 //
 
 import SwiftUI
-import MapKit
+import UIKit
+import GoogleMaps
 
-class MapViewModel: NSObject, ObservableObject, MKMapViewDelegate {
+class MapViewModel: NSObject, ObservableObject, GMSMapViewDelegate {
     
-    @Published var anotations: [MKPointAnnotation] = []
+    @Published var markers: [GMSMarker] = []
     @Published var districtPoints: [CLLocationCoordinate2D] = []
-    @Published var districtPolyline: MKPolyline?
-    @Published var districtPolygon: MKPolygon?
-
+    @Published var districtPolyline: GMSPolyline?
+    @Published var districtPolygon: GMSPolygon?
+    @Published var path: GMSMutablePath?
+    
     var districtCoordinates: String = ""
     var pois: [POIModel] = []
 
@@ -22,14 +24,22 @@ class MapViewModel: NSObject, ObservableObject, MKMapViewDelegate {
         if districtCoordinates.isEmpty || pois.isEmpty  { return }
         
         self.districtPoints = getDistrictCoordinates(string: districtCoordinates)
-        self.districtPolyline = MKPolyline(coordinates: districtPoints, count: districtPoints.count)
-        self.districtPolygon =  MKPolygon(coordinates: districtPoints, count: districtPoints.count)
-        self.anotations = getMapAnotations(pois: pois)
-
-       
+        
+        self.path = createPath(coordinates: districtPoints)
+        self.districtPolyline = GMSPolyline(path: path)
+        self.districtPolygon =  GMSPolygon(path: path)
+        self.markers = createMapMarkers(pois: pois)
+        
         
     }
     
+    func createPath (coordinates: [CLLocationCoordinate2D]) -> GMSMutablePath {
+        let path = GMSMutablePath()
+        for coordinate in coordinates {
+            path.add(coordinate)
+        }
+        return path
+    }
     
     func getDistrictCoordinates(string: String) -> [CLLocationCoordinate2D] {
         var points: [CLLocationCoordinate2D] = []
@@ -44,34 +54,34 @@ class MapViewModel: NSObject, ObservableObject, MKMapViewDelegate {
         return points
     }
     
-    func getMapAnotations(pois: [POIModel]) -> [MKPointAnnotation]{
-        var anotations: [MKPointAnnotation] = []
+    func createMapMarkers(pois: [POIModel]) -> [GMSMarker]{
+        var markers: [GMSMarker] = []
         
         for poi in pois {
-            let anotation = MKPointAnnotation()
+            let marker = GMSMarker()
             let coordinates = CLLocationCoordinate2D(latitude: poi.latitude ?? 0.0, longitude:poi.longitude ?? 0.0)
-            anotation.coordinate = coordinates
-            anotations.append(anotation)
+            
+            marker.position = coordinates
+            markers.append(marker)
+            let imageURL = URL(string: poi.category?.marker?.url ?? "")!
+            applyImage(from: imageURL, to: marker)
+            
+            
         }
-        return anotations
+        return markers
     }
     
+    func applyImage(from url: URL, to marker: GMSMarker) {
+        DispatchQueue.global(qos: .background).async {
+            guard let data = try? Data(contentsOf: url),
+                let image = UIImage(data: data)
+                else { return }
 
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-
-        if let overlay = overlay as? MKPolyline {
-            let renderer = MKPolylineRenderer(polyline: overlay)
-            renderer.strokeColor = .white
-            renderer.lineWidth = 4
-            renderer.lineDashPattern = [0,10]
-
-            return renderer
-        } else if let overlay = overlay as? MKPolygon{
-            let renderer = MKPolygonRenderer(polygon: overlay)
-            renderer.fillColor = UIColor.orange.withAlphaComponent(0.25)
-            return renderer
-        } else {
-            return MKOverlayRenderer(overlay: overlay)
+            DispatchQueue.main.async {
+                marker.icon = image
+            }
         }
     }
+
+  
 }

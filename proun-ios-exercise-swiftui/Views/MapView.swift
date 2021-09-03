@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import MapKit
+import GoogleMaps
 
 struct MapView: UIViewRepresentable {
     
@@ -16,51 +16,69 @@ struct MapView: UIViewRepresentable {
 
     var viewModel: MapViewModel = MapViewModel()
     
-    func makeUIView(context: Context) -> MKMapView {
-        let mapView = MKMapView(frame: .zero)
+    func makeUIView(context: Context) -> GMSMapView {
+
+        let mapView = GMSMapView(frame: .zero)
         mapView.delegate = viewModel
-        
-        mapView.mapType = .hybridFlyover
+        changeMapStyle(mapView: mapView)
         return mapView
     }
     
-    func updateUIView(_ uiView: MKMapView, context: Context) {
+    func updateUIView(_ uiView: GMSMapView, context: Context) {
         
-//        let coordinate = CLLocationCoordinate2D(latitude: 40.130176, longitude: -8.2012655)
-//        let span = MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 20)
-//        let region = MKCoordinateRegion(center: coordinate, span: span)
-//
-//        uiView.setRegion(region, animated: true)
-//        viewModel.points = self.points
+        uiView.clear()
+        
         viewModel.pois = self.pois
         viewModel.districtCoordinates = districtCoordinates
         
         viewModel.setMap()
-
+        
+        centerMap(uiView)
         drawDistrictArea(in: uiView)
         drawPOIs(in: uiView)
         
     }
     
-    func drawDistrictArea(in view: MKMapView) {
-        if !view.overlays.isEmpty {
-            view.removeOverlays(view.overlays)
-        }
-        
+    func centerMap(_ view: GMSMapView) {
+        let bounds = GMSCoordinateBounds(path: viewModel.path ?? GMSMutablePath())
+        let camera: GMSCameraUpdate = GMSCameraUpdate.fit(bounds)
+        view.animate(with: camera)
+    }
+    
+    func drawDistrictArea(in view: GMSMapView) {
+       
         guard let polyline = viewModel.districtPolyline else { return }
         guard let polygon = viewModel.districtPolygon else { return }
 
-        let mapRect = polyline.boundingMapRect
-        view.setVisibleMapRect(mapRect, edgePadding: UIEdgeInsets(top: 40, left: 40, bottom: 10, right: 10), animated: true)
+        polygon.fillColor = UIColor(named: "PrimaryColor")?.withAlphaComponent(0.35)
+        
+        let styles = [GMSStrokeStyle.solidColor(.clear),
+                              GMSStrokeStyle.solidColor(.white)]
 
-        view.addOverlay(polygon)
-        view.addOverlay(polyline)
+        let lengths: [NSNumber] = [20, 20]
+        polyline.spans = GMSStyleSpans(polyline.path!, styles, lengths, .rhumb)
+        polyline.strokeWidth = 5
+        polygon.map = view
+        polyline.map = view
+        
+    }
 
+    func drawPOIs(in view: GMSMapView) {
+        for marker in viewModel.markers {
+            marker.map = view
+        }
     }
     
-    func drawPOIs(in view: MKMapView) {
-        view.removeAnnotations(view.annotations)
-        view.addAnnotations(viewModel.anotations)
+    func changeMapStyle(mapView: GMSMapView){
+        do {
+            if let styleURL = Bundle.main.url(forResource: "mapStyle", withExtension: "json") {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            print("One or more of the map styles failed to load. \(error)")
+        }
         
     }
 }
