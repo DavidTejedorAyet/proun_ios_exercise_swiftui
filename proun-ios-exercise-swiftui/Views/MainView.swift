@@ -12,68 +12,68 @@ struct MainView: View {
     @ObservedObject var viewModel = POIViewModel()
     
     var body: some View {
-        VStack(spacing: 0) {
-            
-            NavbarView()
-            
-            ZStack {
+        ZStack {
+            VStack(spacing: 0) {
                 
-                Color("TitleBackground")
+                NavbarView()
                 
-                HStack {
-                    Text(viewModel.districtName)
-                        .font(Font.custom("TradeGothicLTStd-BdCn20", size: 20))
-                        .foregroundColor(Color("TitleText"))
-                        .textCase(.uppercase)
-                        .padding(.top, 8)
-                        .padding(.leading, 15)
+                ZStack {
                     
-                    Spacer()
+                    Color("TitleBackground")
                     
-                    HStack(spacing: -2) {
-                        Image("poi")
-                            .resizable()
-                            .frame(width:24, height: 28)
-                            .foregroundColor(Color("TitleText"))
-                        Text(viewModel.poisCount)
+                    HStack {
+                        Text(viewModel.districtName)
                             .font(Font.custom("TradeGothicLTStd-BdCn20", size: 20))
                             .foregroundColor(Color("TitleText"))
                             .textCase(.uppercase)
                             .padding(.top, 8)
+                            .padding(.leading, 15)
+                        
+                        Spacer()
+                        
+                        HStack(spacing: -2) {
+                            Image("poi")
+                                .resizable()
+                                .frame(width:24, height: 28)
+                                .foregroundColor(Color("TitleText"))
+                            Text(viewModel.poisCount)
+                                .font(Font.custom("TradeGothicLTStd-BdCn20", size: 20))
+                                .foregroundColor(Color("TitleText"))
+                                .textCase(.uppercase)
+                                .padding(.top, 8)
+                        }
+                        
+                        Spacer()
+                            .frame(width: 18)
+                        
+                        ZStack {
+                            Color("PrimaryColor")
+                            Image("menu")
+                                .foregroundColor(Color("TitleText"))
+                        }
+                        .frame(width: 50)
                     }
                     
-                    Spacer()
-                        .frame(width: 18)
-                    
-                    ZStack {
-                        Color("PrimaryColor")
-                        Image("menu")
-                            .foregroundColor(Color("TitleText"))
-                    }
-                    .frame(width: 50)
+                }
+                .frame(height: 50)
+                
+                if isShowingMap {
+                    MapView(pois: $viewModel.pois, districtCoordinates: $viewModel.districtCoordinates, detailPopUpDelegate: viewModel)
+                } else {
+                    POIsListView(detailPopUpDelegate: viewModel)
                 }
                 
+                TabbarView(isShowingMap: $isShowingMap) 
             }
-            .frame(height: 50)
-            
-            if isShowingMap {
-                MapView(pois: $viewModel.pois, districtCoordinates: $viewModel.districtCoordinates, detailPopUpDelegate: viewModel)
-            } else {
-                POIsListView(detailPopUpDelegate: viewModel)
+            .onAppear(){
+                viewModel.downloadData()
             }
-            
-            TabbarView(isShowingMap: $isShowingMap)
             
             if viewModel.showPopUp {
                 withAnimation {
                     POIDetailPopUp(viewModel: viewModel)
                 }
             }
-            
-        }
-        
-        .onAppear(){
-            viewModel.downloadData()
         }
     }
 }
