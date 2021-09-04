@@ -49,7 +49,7 @@ struct POIDetailPopUp: View {
                         ImageCarouselView(images: images)
                             .frame(height: 220)
                         
-                        MusicPlayerView()
+                        AudioPlayerView()
                         .padding(15)
                         
                         Color.green

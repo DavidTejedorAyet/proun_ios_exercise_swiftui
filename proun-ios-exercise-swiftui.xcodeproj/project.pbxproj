@@ -17,7 +17,7 @@
 		6303736826E247CD005F19E2 /* MapMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303736726E247CD005F19E2 /* MapMarkerView.swift */; };
 		6303736A26E27116005F19E2 /* POIDetailPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303736926E27116005F19E2 /* POIDetailPopUp.swift */; };
 		6303736C26E28381005F19E2 /* ImageCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303736B26E28381005F19E2 /* ImageCarouselView.swift */; };
-		6303736E26E2E32C005F19E2 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303736D26E2E32C005F19E2 /* MusicPlayerView.swift */; };
+		6303736E26E2E32C005F19E2 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303736D26E2E32C005F19E2 /* AudioPlayerView.swift */; };
 		6303737026E36E45005F19E2 /* audio.aac in Resources */ = {isa = PBXBuildFile; fileRef = 6303736F26E36C33005F19E2 /* audio.aac */; };
 		6303A18E26E0E38B008A16BB /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303A18D26E0E38B008A16BB /* TabbarView.swift */; };
 		6303A19026E0EB64008A16BB /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303A18F26E0EB64008A16BB /* MapViewModel.swift */; };
@@ -72,7 +72,7 @@
 		6303736726E247CD005F19E2 /* MapMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerView.swift; sourceTree = "<group>"; };
 		6303736926E27116005F19E2 /* POIDetailPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIDetailPopUp.swift; sourceTree = "<group>"; };
 		6303736B26E28381005F19E2 /* ImageCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselView.swift; sourceTree = "<group>"; };
-		6303736D26E2E32C005F19E2 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
+		6303736D26E2E32C005F19E2 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		6303736F26E36C33005F19E2 /* audio.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio.aac; sourceTree = "<group>"; };
 		6303A18D26E0E38B008A16BB /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		6303A18F26E0EB64008A16BB /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -319,7 +319,7 @@
 				6303A18D26E0E38B008A16BB /* TabbarView.swift */,
 				6303736726E247CD005F19E2 /* MapMarkerView.swift */,
 				6303736B26E28381005F19E2 /* ImageCarouselView.swift */,
-				6303736D26E2E32C005F19E2 /* MusicPlayerView.swift */,
+				6303736D26E2E32C005F19E2 /* AudioPlayerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -593,7 +593,7 @@
 				633A1FF926DFDFFD00962421 /* MediaModel.swift in Sources */,
 				6303A19226E0F2DC008A16BB /* NewModel.swift in Sources */,
 				633A1FF726DFDEB500962421 /* BaseModel.swift in Sources */,
-				6303736E26E2E32C005F19E2 /* MusicPlayerView.swift in Sources */,
+				6303736E26E2E32C005F19E2 /* AudioPlayerView.swift in Sources */,
 				633A1FEF26DFDDD000962421 /* MainView.swift in Sources */,
 				633A1FFB26E00AEE00962421 /* POIModel.swift in Sources */,
 				633A200D26E0125300962421 /* Constants.swift in Sources */,
