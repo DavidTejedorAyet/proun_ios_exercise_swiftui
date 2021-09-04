@@ -25,12 +25,19 @@ struct POIDetailPopUp: View {
                 HStack {
                     //                    Image(uiImage: UIImage(withContentsOfUrl: viewModel.selectedPOI?.category?.icon?.url ?? "") ?? UIImage())
                     Image("menu")
+                        .resizable()
+                        .frame(width: 28, height: 28)
+                        .foregroundColor(Color("TextLight"))
+
                     
-                    Spacer()
-                    
-                    Text(viewModel.selectedPOI?.name ?? "")
-                    
-                    Spacer()
+                    Text(viewModel.selectedPOI?.name ?? "NOMBRE")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(Font.custom("TradeGothicLTStd-BdCn20", size: 25))
+                        .foregroundColor(Color("TextLight"))
+                        .textCase(.uppercase)
+                        .multilineTextAlignment(.leading)
+                        .padding(.top, 8)
+
                     
                     Image("cross")
                         .resizable()
@@ -41,7 +48,7 @@ struct POIDetailPopUp: View {
                         }
                 }
                 .frame(height: 48)
-                .padding(12)
+                .padding(15)
                 
                 ScrollView() {
                     VStack(spacing: 0) {
@@ -49,11 +56,15 @@ struct POIDetailPopUp: View {
                         ImageCarouselView(images: images)
                             .frame(height: 220)
                         
-                        AudioPlayerView()
-                        .padding(15)
+                        AudioPlayerView(viewModel: AudioPlayerViewModel(audio: viewModel.selectedPOI?.audio ?? MediaModel()))
+                            .padding(15)
+                            .frame(height: 102)
+                            .background(Color.white)
+//                        Color.gray
+//                            .frame(height:102)
                         
-                        Color.green
-                            .frame(height:300)
+                        Color("Separator")
+                            .frame(height:1)
                     }
                 }
                 

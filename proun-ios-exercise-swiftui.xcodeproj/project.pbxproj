@@ -18,10 +18,11 @@
 		6303736A26E27116005F19E2 /* POIDetailPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303736926E27116005F19E2 /* POIDetailPopUp.swift */; };
 		6303736C26E28381005F19E2 /* ImageCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303736B26E28381005F19E2 /* ImageCarouselView.swift */; };
 		6303736E26E2E32C005F19E2 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303736D26E2E32C005F19E2 /* AudioPlayerView.swift */; };
-		6303737026E36E45005F19E2 /* audio.aac in Resources */ = {isa = PBXBuildFile; fileRef = 6303736F26E36C33005F19E2 /* audio.aac */; };
 		6303A18E26E0E38B008A16BB /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303A18D26E0E38B008A16BB /* TabbarView.swift */; };
 		6303A19026E0EB64008A16BB /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303A18F26E0EB64008A16BB /* MapViewModel.swift */; };
 		6303A19226E0F2DC008A16BB /* NewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303A19126E0F2DC008A16BB /* NewModel.swift */; };
+		630F017726E380BF0012A45B /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630F017626E380BF0012A45B /* AVPlayer.swift */; };
+		630F017926E3B2200012A45B /* AudioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630F017826E3B2200012A45B /* AudioPlayerViewModel.swift */; };
 		633A1FC226DFDD9E00962421 /* proun_ios_exercise_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633A1FC126DFDD9E00962421 /* proun_ios_exercise_swiftuiApp.swift */; };
 		633A1FC626DFDDA000962421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633A1FC526DFDDA000962421 /* Assets.xcassets */; };
 		633A1FC926DFDDA000962421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633A1FC826DFDDA000962421 /* Preview Assets.xcassets */; };
@@ -73,10 +74,11 @@
 		6303736926E27116005F19E2 /* POIDetailPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIDetailPopUp.swift; sourceTree = "<group>"; };
 		6303736B26E28381005F19E2 /* ImageCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselView.swift; sourceTree = "<group>"; };
 		6303736D26E2E32C005F19E2 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
-		6303736F26E36C33005F19E2 /* audio.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio.aac; sourceTree = "<group>"; };
 		6303A18D26E0E38B008A16BB /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		6303A18F26E0EB64008A16BB /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		6303A19126E0F2DC008A16BB /* NewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewModel.swift; sourceTree = "<group>"; };
+		630F017626E380BF0012A45B /* AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AVPlayer.swift; path = ../../../../../AVPlayer.swift; sourceTree = "<group>"; };
+		630F017826E3B2200012A45B /* AudioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewModel.swift; sourceTree = "<group>"; };
 		633A1FBE26DFDD9E00962421 /* proun-ios-exercise-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "proun-ios-exercise-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		633A1FC126DFDD9E00962421 /* proun_ios_exercise_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = proun_ios_exercise_swiftuiApp.swift; sourceTree = "<group>"; };
 		633A1FC526DFDDA000962421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,7 +146,6 @@
 		6303736426E23175005F19E2 /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
-				6303736F26E36C33005F19E2 /* audio.aac */,
 				6303736526E231E8005F19E2 /* mapStyle.json */,
 				6303A18C26E0D8EC008A16BB /* Fonts */,
 			);
@@ -230,6 +231,7 @@
 			children = (
 				633A200E26E017DC00962421 /* POIViewModel.swift */,
 				6303A18F26E0EB64008A16BB /* MapViewModel.swift */,
+				630F017826E3B2200012A45B /* AudioPlayerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -300,6 +302,7 @@
 				6303736026E223EC005F19E2 /* GMSPolyline.swift */,
 				6303735C26E147D3005F19E2 /* Double.swift */,
 				6303736226E22A99005F19E2 /* UIImage+Image.swift */,
+				630F017626E380BF0012A45B /* AVPlayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -459,7 +462,6 @@
 				633A201D26E0D52E00962421 /* TradeGothicLTStd-BdCn20.otf in Resources */,
 				633A1FC926DFDDA000962421 /* Preview Assets.xcassets in Resources */,
 				633A1FC626DFDDA000962421 /* Assets.xcassets in Resources */,
-				6303737026E36E45005F19E2 /* audio.aac in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,10 +605,12 @@
 				6303735D26E147D3005F19E2 /* Double.swift in Sources */,
 				6303736A26E27116005F19E2 /* POIDetailPopUp.swift in Sources */,
 				633A1FFD26E00B8A00962421 /* CategoryModel.swift in Sources */,
+				630F017926E3B2200012A45B /* AudioPlayerViewModel.swift in Sources */,
 				633A200726E0112800962421 /* Int+HttpStatus.swift in Sources */,
 				633A200F26E017DC00962421 /* POIViewModel.swift in Sources */,
 				6303736826E247CD005F19E2 /* MapMarkerView.swift in Sources */,
 				6303736126E223EC005F19E2 /* GMSPolyline.swift in Sources */,
+				630F017726E380BF0012A45B /* AVPlayer.swift in Sources */,
 				633A201B26E0D36300962421 /* NavbarView.swift in Sources */,
 				6303736326E22A99005F19E2 /* UIImage+Image.swift in Sources */,
 				633A1FC226DFDD9E00962421 /* proun_ios_exercise_swiftuiApp.swift in Sources */,

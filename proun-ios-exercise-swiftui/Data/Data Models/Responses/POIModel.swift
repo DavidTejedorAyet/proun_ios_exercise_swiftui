@@ -22,6 +22,8 @@ class POIModel: BaseModel {
     var isPremium: Bool?
     var events: [EventModel]?
     var news: [NewModel]? // No se especifica el valor de la clase
+    var audio: MediaModel?
+    var isLiked: Bool?
     
     private enum CodingKeys: String, CodingKey {
         case likesCount = "likes_count"
@@ -38,6 +40,8 @@ class POIModel: BaseModel {
         case isPremium = "premium"
         case events
         case news
+        case audio
+        case isLiked = "like_it"
         
     }
 }

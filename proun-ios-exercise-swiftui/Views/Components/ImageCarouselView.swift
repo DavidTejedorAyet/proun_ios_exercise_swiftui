@@ -22,7 +22,7 @@ struct ImageCarouselView: View {
                 }
             }
             .tabViewStyle(PageTabViewStyle())
-            .frame(width: geometry.size.width, height: 300)
+            .frame(width: geometry.size.width)
         }
         
     }
