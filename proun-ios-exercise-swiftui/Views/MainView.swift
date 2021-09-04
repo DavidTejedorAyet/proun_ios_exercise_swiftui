@@ -58,7 +58,7 @@ struct MainView: View {
                 .frame(height: 50)
                 
                 if isShowingMap {
-                    MapView(pois: $viewModel.pois, districtCoordinates: $viewModel.districtCoordinates, detailPopUpDelegate: viewModel)
+                    MapView(viewModel: MapViewModel(pois: viewModel.pois, districtCoordinates: viewModel.districtCoordinates, detailPopUpDelegate: viewModel))
                 } else {
                     POIsListView(detailPopUpDelegate: viewModel)
                 }

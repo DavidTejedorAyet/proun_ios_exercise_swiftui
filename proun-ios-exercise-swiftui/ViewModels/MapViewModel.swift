@@ -17,20 +17,37 @@ class MapViewModel: NSObject, ObservableObject, GMSMapViewDelegate {
     @Published var districtPolyline: GMSPolyline?
     @Published var districtPolygon: GMSPolygon?
     @Published var path: GMSMutablePath?
+    @Published var selectedPOI: POIModel?
+
     
     var detailPopUpDelegate: POIDetailPopUpDelegate?
-    var districtCoordinates: String = ""
     var pois: [POIModel] = []
+    var districtCoordinates: String = ""
+    var isDetailMap = false
+
+    init(selectedPOI: POIModel) {
+        self.selectedPOI = selectedPOI
+        isDetailMap = true
+    }
     
-    func setMap() {
-        if districtCoordinates.isEmpty || pois.isEmpty  { return }
+    init(pois: [POIModel], districtCoordinates: String, detailPopUpDelegate: POIDetailPopUpDelegate) {
+        self.pois = pois
+        self.districtCoordinates = districtCoordinates
+        self.detailPopUpDelegate = detailPopUpDelegate
+        
+        super.init()
         
         self.districtPoints = getDistrictCoordinates(string: districtCoordinates)
-        
         self.path = createPath(coordinates: districtPoints)
         self.districtPolyline = GMSPolyline(path: path)
         self.districtPolygon =  GMSPolygon(path: path)
         self.markers = createMapMarkers(pois: pois)
+    }
+    
+    func setMap() {
+        if districtCoordinates.isEmpty || pois.isEmpty  { return }
+        
+        
         
         
     }

@@ -56,15 +56,17 @@ struct POIDetailPopUp: View {
                         ImageCarouselView(images: images)
                             .frame(height: 220)
                         
-                        AudioPlayerView(viewModel: AudioPlayerViewModel(audio: viewModel.selectedPOI?.audio ?? MediaModel()))
-                            .padding(15)
-                            .frame(height: 102)
-                            .background(Color.white)
-//                        Color.gray
-//                            .frame(height:102)
+//                        AudioPlayerView(viewModel: AudioPlayerViewModel(audio: viewModel.selectedPOI?.audio ?? MediaModel()))
+//                            .padding(15)
+//                            .frame(height: 102)
+//                            .background(Color.white)
+                        Color.gray
+                            .frame(height:102)
                         
                         Color("Separator")
                             .frame(height:1)
+                        
+//                        MapView(pois: <#T##Binding<[POIModel]>#>, districtCoordinates: <#T##Binding<String>#>, detailPopUpDelegate: <#T##POIDetailPopUpDelegate?#>, viewModel: <#T##MapViewModel#>)
                     }
                 }
                 

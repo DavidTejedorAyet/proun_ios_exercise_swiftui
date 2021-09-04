@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C6FFAA35-A17D-465F-90C2-1ADDB238EEDD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "proun-ios-exercise-swiftui/Views/MapView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "updateUIView(_:context:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "FB6B2C65-AE81-455D-8CBE-D9D51B943E6F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -78,8 +62,8 @@
             filePath = "proun-ios-exercise-swiftui/ViewModels/MapViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "applyImage(from:to:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +78,8 @@
             filePath = "proun-ios-exercise-swiftui/ViewModels/MapViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "applyImage(from:to:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +94,8 @@
             filePath = "proun-ios-exercise-swiftui/ViewModels/MapViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "applyImage(from:to:)"
             landmarkType = "7">
             <Locations>
@@ -158,8 +142,8 @@
             filePath = "proun-ios-exercise-swiftui/Views/MapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "MapView"
             landmarkType = "14">
          </BreakpointContent>
@@ -174,8 +158,8 @@
             filePath = "proun-ios-exercise-swiftui/ViewModels/MapViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "mapView(_:didTapInfoWindowOf:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +174,8 @@
             filePath = "proun-ios-exercise-swiftui/Views/MapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "makeUIView(context:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -10,14 +10,10 @@ import GoogleMaps
 
 struct MapView: UIViewRepresentable {
     
-    @Binding var pois: [POIModel]
-    @Binding var districtCoordinates: String
-
-    var detailPopUpDelegate: POIDetailPopUpDelegate?
-    var viewModel: MapViewModel = MapViewModel()
+    var viewModel: MapViewModel
     
     func makeUIView(context: Context) -> GMSMapView {
-
+        
         let mapView = GMSMapView(frame: .zero)
         changeMapStyle(mapView: mapView)
         return mapView
@@ -25,37 +21,45 @@ struct MapView: UIViewRepresentable {
     
     func updateUIView(_ uiView: GMSMapView, context: Context) {
         uiView.delegate = viewModel
-
         uiView.clear()
         
-        viewModel.detailPopUpDelegate = detailPopUpDelegate
-        viewModel.pois = self.pois
-        viewModel.districtCoordinates = districtCoordinates
+        if viewModel.isDetailMap {
+            let coordinates = CLLocationCoordinate2D(latitude: viewModel.selectedPOI?.latitude ?? 0.0, longitude: viewModel.selectedPOI?.longitude ?? 0.0)
+            centerMapOn(coordinates: coordinates, mapView: uiView)
+            uiView.isUserInteractionEnabled = false
+            
+        } else {
+//            viewModel.setMap()
+            
+            centerMapOn(path: viewModel.path ?? GMSMutablePath(),mapView: uiView)
+            drawDistrictArea(in: uiView)
+            drawPOIs(in: uiView)
+        }
         
-        viewModel.setMap()
-        
-        centerMap(uiView)
-        drawDistrictArea(in: uiView)
-        drawPOIs(in: uiView)
         
     }
     
-    func centerMap(_ view: GMSMapView) {
-        let bounds = GMSCoordinateBounds(path: viewModel.path ?? GMSMutablePath())
+    func centerMapOn(path: GMSMutablePath, mapView: GMSMapView) {
+        let bounds = GMSCoordinateBounds(path: path)
         let camera: GMSCameraUpdate = GMSCameraUpdate.fit(bounds)
-        view.animate(with: camera)
+        mapView.animate(with: camera)
+    }
+    
+    func centerMapOn(coordinates: CLLocationCoordinate2D, mapView: GMSMapView) {
+        let camera = GMSCameraPosition(latitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 14)
+        mapView.camera = camera
     }
     
     func drawDistrictArea(in view: GMSMapView) {
-       
+        
         guard let polyline = viewModel.districtPolyline else { return }
         guard let polygon = viewModel.districtPolygon else { return }
-
+        
         polygon.fillColor = UIColor(named: "PrimaryColor")?.withAlphaComponent(0.35)
         
         let styles = [GMSStrokeStyle.solidColor(.clear),
-                              GMSStrokeStyle.solidColor(.white)]
-
+                      GMSStrokeStyle.solidColor(.white)]
+        
         let lengths: [NSNumber] = [20, 20]
         polyline.spans = GMSStyleSpans(polyline.path!, styles, lengths, .rhumb)
         polyline.strokeWidth = 5
@@ -63,7 +67,7 @@ struct MapView: UIViewRepresentable {
         polyline.map = view
         
     }
-
+    
     func drawPOIs(in view: GMSMapView) {
         for marker in viewModel.markers {
             marker.map = view
@@ -75,7 +79,7 @@ struct MapView: UIViewRepresentable {
             if let styleURL = Bundle.main.url(forResource: "mapStyle", withExtension: "json") {
                 mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
             } else {
-                NSLog("Unable to find style.json")
+                NSLog("Unable to find mapStyle.json")
             }
         } catch {
             print("One or more of the map styles failed to load. \(error)")
@@ -86,6 +90,6 @@ struct MapView: UIViewRepresentable {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(pois: .constant([]), districtCoordinates: .constant(""))
+        MapView(viewModel: MapViewModel(selectedPOI: POIModel()))
     }
 }
