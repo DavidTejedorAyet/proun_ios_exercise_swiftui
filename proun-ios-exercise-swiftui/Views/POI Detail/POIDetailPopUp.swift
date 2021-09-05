@@ -29,7 +29,7 @@ struct POIDetailPopUp: View {
                         placeholder: { Text("Cargando ...") },
                         image: { Image(uiImage: $0).resizable() }
                     )
-                    .frame(width: 34, height: 34)
+                    .frame(width: 46, height: 46)
                     .foregroundColor(Color("TextLight"))
                     
                     Text(viewModel.selectedPOI?.name ?? "NOMBRE")
@@ -50,8 +50,8 @@ struct POIDetailPopUp: View {
                             viewModel.showPopUp.toggle()
                         }
                 }
-                .frame(height: 48)
                 .padding(18)
+                .frame(height: 72)
                 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
