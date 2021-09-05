@@ -23,7 +23,6 @@ struct EventsListView: View {
             }
         }
         .padding(15)
-        .listStyle(PlainListStyle())
         
     }
 }

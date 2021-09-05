@@ -63,7 +63,10 @@
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#4d4d4d"
+        "color": "#716f6f"
+      },
+      {
+        "lightness": 20
       }
     ]
   },
@@ -93,7 +96,16 @@
         "color": "#a2a0a0"
       },
       {
+        "saturation": -20
+      },
+      {
+        "lightness": 40
+      },
+      {
         "visibility": "on"
+      },
+      {
+        "weight": 1
       }
     ]
   },

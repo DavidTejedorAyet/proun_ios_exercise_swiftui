@@ -27,7 +27,7 @@ struct MapMarkerView: View {
                         .multilineTextAlignment(.center)
                     HStack {
                         Text("\(time) -")
-                            .font(Font.custom("TradeGothicLTStd-BdCn20", size: 10))
+                            .font(Font.custom("TradeGothicLTStd-BdCn20", size: 14))
                             .foregroundColor(Color("MapMarkerTime"))
                             .textCase(.uppercase)
                             .padding(.top, 8)
@@ -43,7 +43,7 @@ struct MapMarkerView: View {
                                 .padding(.top, 6)
                             
                             Text(location)
-                                .font(Font.custom("TradeGothicLTStd-BdCn20", size: 10))
+                                .font(Font.custom("TradeGothicLTStd-BdCn20", size: 14))
                                 .foregroundColor(Color("MapMarkerLocation"))
                                 .padding(.top, 8)
                         }

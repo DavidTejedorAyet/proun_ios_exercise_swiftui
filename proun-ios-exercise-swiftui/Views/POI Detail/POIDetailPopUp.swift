@@ -48,7 +48,7 @@ struct POIDetailPopUp: View {
                         }
                 }
                 .frame(height: 48)
-                .padding(15)
+                .padding(18)
                 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
@@ -57,43 +57,44 @@ struct POIDetailPopUp: View {
                             .frame(height: 240)
                         
                         AudioPlayerView(viewModel: AudioPlayerViewModel(audio: viewModel.selectedPOI?.audio ?? MediaModel()))
-                            .padding(16)
-                            .frame(height: 102)
+                            .padding(18)
+                            .frame(height: 118)
                             .background(Color.white)
                         
                         Color("Separator")
                             .frame(height:1)
                         
-                        HStack(spacing: 4) {
-                            Text("Acerca de este local:")
-                                .foregroundColor(Color("Text"))
-                                .font(.custom("Roboto-Medium", size: 18))
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack(spacing: 4) {
+                                Text("Acerca de este local:")
+                                    .foregroundColor(Color("Text"))
+                                    .font(.custom("Roboto-Medium", size: 16))
 
-                            Spacer()
+                                Spacer()
+                                
+                                Text(String(viewModel.selectedPOI?.likesCount ?? 0))
+                                    .foregroundColor(Color("TextVeryLight"))
+                                    .font(.custom("Roboto-Medium", size: 16))
+                                
+                                Image("like")
+                                    .resizable()
+                                    .frame(width: 19, height: 16)
+                                    .foregroundColor(Color("TextVeryLight"))
+     
+                            }
                             
-                            Text(String(viewModel.selectedPOI?.likesCount ?? 0))
+                            Text(viewModel.selectedPOI?.description ?? "Descripción")
                                 .foregroundColor(Color("TextVeryLight"))
-                                .font(.custom("Roboto-Medium", size: 18))
-                            
-                            Image("like")
-                                .resizable()
-                                .frame(width: 19, height: 16)
-                                .foregroundColor(Color("TextVeryLight"))
- 
+                                .font(.custom("Roboto-Medium", size: 16))
                         }
-                        .padding(16)
-                        
-                        Text(viewModel.selectedPOI?.description ?? "Descripción")
-                            .foregroundColor(Color("TextVeryLight"))
-                            .font(.custom("Roboto-Medium", size: 18))
-                            .padding(.horizontal,16)
+                        .padding(18)
 
                         MapView(viewModel: MapViewModel(selectedPOI: viewModel.selectedPOI ?? POIModel()))
-                            .frame(height: 180)
-                            .padding(16)
+                            .frame(height: 190)
+                            .padding(18)
 
                         EventTabbarView()
-                            .frame(height: 380)
+                            .frame(minHeight: 300, maxHeight: .infinity)
                     }
                 }
                 

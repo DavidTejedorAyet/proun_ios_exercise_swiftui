@@ -15,14 +15,16 @@ struct EventTabbarView: View {
 
     var body: some View {
         
-        VStack {
+        VStack (){
             EventTabBarPaginatorView(offset: $offset, selectedTab: $selectedTab, tabs: tabs)
+            
                             
             switch selectedTab {
             case 0:
                 EventsListView()
             default:
                 Text("En construccion")
+                    .frame(height: 300)
 
             }
             

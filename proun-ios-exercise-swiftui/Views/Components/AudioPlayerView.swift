@@ -27,7 +27,7 @@ struct AudioPlayerView : View {
                     viewModel.onTapPlayButton()
                 }
             
-            VStack {
+            VStack(spacing: 0) {
                 GeometryReader { geometry in
                     ZStack(alignment: .leading) {
                         
@@ -53,21 +53,21 @@ struct AudioPlayerView : View {
                         }
                     }
                     .onAppear(){
-                        viewModel.prepareAudio(barWidth: geometry.size.width)
+//                        viewModel.prepareAudio(barWidth: geometry.size.width)
                     }
                 }
                 .frame(height: 18)
                 
                 HStack{
                     Text(viewModel.currentTime)
-                        .foregroundColor(Color("TextVeryLight"))
-                        .font(.custom("Roboto-Medium", size: 18))
+                        .foregroundColor(Color("TextLight"))
+                        .font(.custom("Roboto-Medium", size: 16))
 
                     Spacer()
 
                     Text(viewModel.totalDuration)
                         .foregroundColor(Color("Text"))
-                        .font(.custom("Roboto-Medium", size: 18))
+                        .font(.custom("Roboto-Medium", size: 16))
                 }
             }
         }

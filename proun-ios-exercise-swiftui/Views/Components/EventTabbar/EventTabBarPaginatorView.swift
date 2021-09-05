@@ -1,3 +1,4 @@
+
 //
 //  TabBar.swift
 //  Chanel (iOS)
@@ -46,8 +47,9 @@ struct EventTabBarPaginatorView: View {
                                 .onTapGesture {
                                     withAnimation(.easeInOut(duration: 0.2)){
                                         offset = UIScreen.main.bounds.width * CGFloat(index)
+                                        selectedTab = index
+
                                     }
-                                    selectedTab = index
 
                                 }
                         }
