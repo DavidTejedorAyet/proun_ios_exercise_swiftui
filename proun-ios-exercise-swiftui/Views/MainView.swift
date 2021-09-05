@@ -60,7 +60,7 @@ struct MainView: View {
                 if isShowingMap {
                     MapView(viewModel: MapViewModel(pois: viewModel.pois, districtCoordinates: viewModel.districtCoordinates, detailPopUpDelegate: viewModel))
                 } else {
-                    POIsListView(detailPopUpDelegate: viewModel)
+                    POIsListView(viewModel: viewModel)
                 }
                 
                 TabbarView(isShowingMap: $isShowingMap) 

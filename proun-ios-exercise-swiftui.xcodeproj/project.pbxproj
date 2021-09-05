@@ -53,6 +53,8 @@
 		63D71AA926E4F40900E94C51 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63D71AA826E4F40400E94C51 /* Roboto-Regular.ttf */; };
 		63D71AAB26E4F45100E94C51 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63D71AAA26E4F44E00E94C51 /* Roboto-Medium.ttf */; };
 		63D71AAD26E4F70300E94C51 /* CMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D71AAC26E4F70300E94C51 /* CMTime.swift */; };
+		63D71AAF26E503C000E94C51 /* POICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D71AAE26E503C000E94C51 /* POICell.swift */; };
+		63D71AB326E50CDF00E94C51 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63D71AB226E50CDF00E94C51 /* Roboto-Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +126,8 @@
 		63D71AA826E4F40400E94C51 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		63D71AAA26E4F44E00E94C51 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		63D71AAC26E4F70300E94C51 /* CMTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTime.swift; sourceTree = "<group>"; };
+		63D71AAE26E503C000E94C51 /* POICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POICell.swift; sourceTree = "<group>"; };
+		63D71AB226E50CDF00E94C51 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		77DEDF2DA012392D9D119AD9 /* Pods-proun-ios-exercise-swiftuiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proun-ios-exercise-swiftuiTests.release.xcconfig"; path = "Target Support Files/Pods-proun-ios-exercise-swiftuiTests/Pods-proun-ios-exercise-swiftuiTests.release.xcconfig"; sourceTree = "<group>"; };
 		973A8BC6C4891C56F844388E /* Pods_proun_ios_exercise_swiftuiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_proun_ios_exercise_swiftuiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43B06C1A4F9DB559A192486 /* Pods_proun_ios_exercise_swiftui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_proun_ios_exercise_swiftui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				63D71AA826E4F40400E94C51 /* Roboto-Regular.ttf */,
+				63D71AB226E50CDF00E94C51 /* Roboto-Light.ttf */,
 				63D71AAA26E4F44E00E94C51 /* Roboto-Medium.ttf */,
 				633A201C26E0D50A00962421 /* TradeGothicLTStd-BdCn20.otf */,
 			);
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				630F018926E3E21E0012A45B /* EventCell.swift */,
+				63D71AAE26E503C000E94C51 /* POICell.swift */,
 			);
 			path = ListCells;
 			sourceTree = "<group>";
@@ -529,6 +535,7 @@
 				633A201D26E0D52E00962421 /* TradeGothicLTStd-BdCn20.otf in Resources */,
 				63D71AAB26E4F45100E94C51 /* Roboto-Medium.ttf in Resources */,
 				63D71AA926E4F40900E94C51 /* Roboto-Regular.ttf in Resources */,
+				63D71AB326E50CDF00E94C51 /* Roboto-Light.ttf in Resources */,
 				633A1FC926DFDDA000962421 /* Preview Assets.xcassets in Resources */,
 				633A1FC626DFDDA000962421 /* Assets.xcassets in Resources */,
 			);
@@ -666,6 +673,7 @@
 				6303A19226E0F2DC008A16BB /* NewModel.swift in Sources */,
 				633A1FF726DFDEB500962421 /* BaseModel.swift in Sources */,
 				6303736E26E2E32C005F19E2 /* AudioPlayerView.swift in Sources */,
+				63D71AAF26E503C000E94C51 /* POICell.swift in Sources */,
 				633A1FEF26DFDDD000962421 /* MainView.swift in Sources */,
 				630F017F26E3D4710012A45B /* EventTabBarPaginatorView.swift in Sources */,
 				633A1FFB26E00AEE00962421 /* POIModel.swift in Sources */,
