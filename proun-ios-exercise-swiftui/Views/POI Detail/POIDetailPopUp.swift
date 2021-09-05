@@ -13,7 +13,7 @@ protocol POIDetailPopUpDelegate {
 struct POIDetailPopUp: View {
     
     @StateObject var viewModel: POIViewModel
-    @State var isPlayingAudio: Bool = false
+    @State var stopPlayingAudio: Bool = false
     
     var body: some View {
         let selectedPOI = viewModel.selectedPOI
@@ -46,6 +46,7 @@ struct POIDetailPopUp: View {
                         .foregroundColor(Color("VeryLightButtonColor"))
                         .frame(width: 22, height: 22)
                         .onTapGesture {
+                            stopPlayingAudio = false
                             viewModel.showPopUp.toggle()
                         }
                 }
@@ -58,7 +59,7 @@ struct POIDetailPopUp: View {
                         ImageCarouselView(images: images)
                             .frame(height: 240)
                         
-                        AudioPlayerView(viewModel: AudioPlayerViewModel(audio: viewModel.selectedPOI?.audio ?? MediaModel()))
+                        AudioPlayerView(viewModel: AudioPlayerViewModel(audio: viewModel.selectedPOI?.audio ?? MediaModel()), playing: $stopPlayingAudio)
                             .padding(18)
                             .frame(height: 118)
                             .background(Color.white)
@@ -104,8 +105,8 @@ struct POIDetailPopUp: View {
             }
             .background(Color.white)
             .padding(.horizontal, 20)
-            .padding(.top,108 + (UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0))
-            .padding(.bottom, 40 + (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0))
+            .padding(.top, 80 + (UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0))
+            .padding(.bottom, 35 + (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0))
         }
         .ignoresSafeArea()
     }

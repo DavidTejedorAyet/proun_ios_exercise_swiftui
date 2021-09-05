@@ -11,14 +11,18 @@ class POIViewModel: ObservableObject {
     
     let requestManager = RequestManager()
     
-    @Published var pois: [POIModel] = []
-    @Published var districtCoordinates = ""
-    @Published var districtName = ""
-    @Published var poisCount = ""
+    var pois: [POIModel] = []
+    var districtCoordinates = ""
+    var districtName = ""
+    var poisCount = ""
+    var selectedPOI: POIModel?
+    
     @Published var isLoading: Bool = false
     @Published var showPopUp = false
-    @Published var selectedPOI: POIModel?
-    @Published var viewsNeedUpdate: Bool = false
+    
+    init() {
+        downloadData()
+    }
     
     func downloadData() {
         isLoading = true
@@ -32,7 +36,6 @@ class POIViewModel: ObservableObject {
                 self.districtName = data.name ?? ""
                 self.poisCount = String(data.poisCount ?? 0)
                 self.isLoading = false
-                self.viewsNeedUpdate = true
             case .error(let error):
                 print("*** \(error.localizedDescription)")
             }

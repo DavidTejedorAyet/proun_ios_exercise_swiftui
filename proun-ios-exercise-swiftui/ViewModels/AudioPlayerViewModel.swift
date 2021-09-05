@@ -9,8 +9,12 @@ import Foundation
 import AVFoundation
 import SwiftUI
 
+protocol AudioPlayerDelegate {
+    func stopAudio()
+}
+
 class AudioPlayerViewModel: ObservableObject {
-    @Published var player : AVPlayer!
+    @Published var player: AVPlayer?
     @Published var isPlaying = false
     @Published var audio: MediaModel
     @Published var isFinished = false
@@ -18,10 +22,12 @@ class AudioPlayerViewModel: ObservableObject {
     
     @Published var totalDuration: String = "00:00"
     @Published var currentTime: String = "00:00"
-
+    
     init(audio: MediaModel) {
         self.audio = audio
     }
+    
+    
     
     func onTapPlayButton() {
         
@@ -44,16 +50,16 @@ class AudioPlayerViewModel: ObservableObject {
     func changeProgressBarValue(value: CGFloat) {
         let x = value
         progressBarWidth = x
-        player.pause()
+        player?.pause()
     }
     
     func onEndProgressBarChange(value: CGFloat, progressBarWidth: CGFloat) {
         let x = value
         let percent = x / progressBarWidth
-        let time = Double(percent) * (player.currentItem?.duration.seconds ?? 0.0)
+        let time = Double(percent) * (player?.currentItem?.duration.seconds ?? 0.0)
         
-        player.seek(to: CMTime(seconds: time, preferredTimescale: .max))
-        player.play()
+        player?.seek(to: CMTime(seconds: time, preferredTimescale: .max))
+        player?.play()
         isFinished = false
     }
     
@@ -63,19 +69,20 @@ class AudioPlayerViewModel: ObservableObject {
         player = AVPlayer(playerItem: playerItem)
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: nil)
     
-        guard let playerItem = player.currentItem else { return }
+        guard let playerItem = player?.currentItem else { return }
         
-        totalDuration = playerItem.duration.positionalTime
         
         Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (_) in
-            if self.player.isPlaying{
+            if self.player!.isPlaying {
                 let value = playerItem.currentTime().seconds / playerItem.duration.seconds
                 self.progressBarWidth = barWidth * CGFloat(value)
                 self.currentTime = playerItem.currentTime().positionalTime
 
             }
+            self.totalDuration = playerItem.duration.positionalTime
         }
         
+
     }
     
     @objc func playerDidFinishPlaying(notification: Notification) {

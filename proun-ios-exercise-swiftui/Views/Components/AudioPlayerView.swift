@@ -10,7 +10,12 @@ import AVKit
 
 struct AudioPlayerView : View {
 
-    @ObservedObject var viewModel: AudioPlayerViewModel
+    @StateObject var viewModel: AudioPlayerViewModel
+    @Binding var playing: Bool {
+        didSet {
+            viewModel.isPlaying = playing
+        }
+    }
     
     var body : some View{
         
@@ -55,6 +60,9 @@ struct AudioPlayerView : View {
                     .onAppear(){
                         viewModel.prepareAudio(barWidth: geometry.size.width)
                     }
+                    .onDisappear() {
+                        viewModel.player?.pause()
+                    }
                 }
                 .frame(height: 18)
                 
@@ -73,7 +81,6 @@ struct AudioPlayerView : View {
         }
         .padding(15)
         .background(Color("PlayerBackground"))
-        
     }
     
     
@@ -83,6 +90,6 @@ struct AudioPlayerView : View {
 
 struct AudioPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioPlayerView(viewModel: AudioPlayerViewModel(audio: MediaModel()))
+        AudioPlayerView(viewModel: AudioPlayerViewModel(audio: MediaModel()), playing: .constant(false))
     }
 }

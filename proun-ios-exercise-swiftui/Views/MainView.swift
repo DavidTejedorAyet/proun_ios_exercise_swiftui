@@ -9,10 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @State var isShowingMap = true
-    
     @ObservedObject var viewModel = POIViewModel()
-    
-    
+   
     var body: some View {
         LoaderView(isShowing: viewModel.isLoading) {
             ZStack {
@@ -62,15 +60,14 @@ struct MainView: View {
                     
                     if isShowingMap {
                         MapView(viewModel: MapViewModel(pois: viewModel.pois, districtCoordinates: viewModel.districtCoordinates, detailPopUpDelegate: viewModel))
+                            .equatable()
                     } else {
                         POIsListView(viewModel: viewModel)
                     }
                     
                     TabbarView(isShowingMap: $isShowingMap)
                 }
-                .onAppear(){
-                    viewModel.downloadData()
-                }
+                
                 
                 if viewModel.showPopUp {
                     withAnimation {

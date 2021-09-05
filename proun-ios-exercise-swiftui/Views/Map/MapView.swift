@@ -8,10 +8,16 @@
 import SwiftUI
 import GoogleMaps
 
-struct MapView: UIViewRepresentable {
+struct MapView: UIViewRepresentable, Equatable {
     
     @ObservedObject var viewModel: MapViewModel
     @State var needsUpdate = true
+    
+    //    Previene recargar la vista si ya esta cargada
+        static func == (lhs: MapView, rhs: MapView) -> Bool {
+            !lhs.viewModel.needsUpdate
+        }
+    
     func makeUIView(context: Context) -> GMSMapView {
         
         let mapView = GMSMapView(frame: .zero)
@@ -23,7 +29,6 @@ struct MapView: UIViewRepresentable {
                 
         guard !viewModel.pois.isEmpty else { return }
         
-        print("****", viewModel.needsUpdate)
         uiView.delegate = viewModel
         uiView.clear()
         
@@ -35,7 +40,7 @@ struct MapView: UIViewRepresentable {
             centerMapOn(path: viewModel.path ?? GMSMutablePath(),mapView: uiView)
             drawDistrictArea(in: uiView)
         }
-        
+        viewModel.needsUpdate = false
         drawPOIs(in: uiView)
     }
     

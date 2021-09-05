@@ -45,15 +45,8 @@ class MapViewModel: NSObject, ObservableObject, GMSMapViewDelegate {
         self.path = createPath(coordinates: districtPoints)
         self.districtPolyline = GMSPolyline(path: path)
         self.districtPolygon =  GMSPolygon(path: path)
-        self.markers = createMapMarkers(pois: pois)
-    }
-    
-    func setMap() {
-        if districtCoordinates.isEmpty || pois.isEmpty  { return }
-        
-        
-        
-        
+        self.markers = self.createMapMarkers(pois: pois)
+
     }
     
     func createPath (coordinates: [CLLocationCoordinate2D]) -> GMSMutablePath {
