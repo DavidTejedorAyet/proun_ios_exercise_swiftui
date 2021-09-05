@@ -24,18 +24,15 @@ struct MapView: UIViewRepresentable {
         uiView.clear()
         
         if viewModel.isDetailMap {
-            let coordinates = CLLocationCoordinate2D(latitude: viewModel.selectedPOI?.latitude ?? 0.0, longitude: viewModel.selectedPOI?.longitude ?? 0.0)
-            centerMapOn(coordinates: coordinates, mapView: uiView)
+            centerMapOn(coordinates: viewModel.markers.first?.position ?? CLLocationCoordinate2D(), mapView: uiView)
             uiView.isUserInteractionEnabled = false
             
         } else {
-//            viewModel.setMap()
-            
             centerMapOn(path: viewModel.path ?? GMSMutablePath(),mapView: uiView)
             drawDistrictArea(in: uiView)
-            drawPOIs(in: uiView)
         }
         
+        drawPOIs(in: uiView)
         
     }
     
@@ -46,7 +43,7 @@ struct MapView: UIViewRepresentable {
     }
     
     func centerMapOn(coordinates: CLLocationCoordinate2D, mapView: GMSMapView) {
-        let camera = GMSCameraPosition(latitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 14)
+        let camera = GMSCameraPosition(latitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 13)
         mapView.camera = camera
     }
     

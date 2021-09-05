@@ -27,35 +27,49 @@ struct AudioPlayerView : View {
                     viewModel.onTapPlayButton()
                 }
             
-            GeometryReader { geometry in
-                ZStack(alignment: .leading) {
-                    
-                    Rectangle().fill(Color("PlayerPlayableLine"))
-                        .frame(height: 8)
-                    
-                    HStack(spacing: 0) {
-                        Rectangle().fill(Color("PlayerPlayedLine"))
-                            .frame(maxWidth: geometry.size.width)
-                            .frame(width: viewModel.progressBarWidth, height: 8)
-                            .gesture(DragGesture()
-                                        .onChanged({ (value) in
-                                            viewModel.changeProgressBarValue(value: value.location.x)
-                                            
-                                        }).onEnded({ (value) in
-                                            viewModel.onEndProgressBarChange(value: value.location.x, progressBarWidth: geometry.size.width)
-                                    }))
+            VStack {
+                GeometryReader { geometry in
+                    ZStack(alignment: .leading) {
                         
-                        Circle()
-                            .fill(Color("PlayerProgressIcon"))
-                            .frame(width: 18, height: 18)
+                        Rectangle().fill(Color("PlayerPlayableLine"))
+                            .frame(height: 8)
+                        
+                        HStack(spacing: 0) {
+                            Rectangle().fill(Color("PlayerPlayedLine"))
+                                .frame(maxWidth: geometry.size.width)
+                                .frame(width: viewModel.progressBarWidth, height: 8)
+                                .gesture(DragGesture()
+                                            .onChanged({ (value) in
+                                                viewModel.changeProgressBarValue(value: value.location.x)
+                                                
+                                            }).onEnded({ (value) in
+                                                viewModel.onEndProgressBarChange(value: value.location.x, progressBarWidth: geometry.size.width)
+                                        }))
                             
+                            Circle()
+                                .fill(Color("PlayerProgressIcon"))
+                                .frame(width: 18, height: 18)
+                                
+                        }
+                    }
+                    .onAppear(){
+                        viewModel.prepareAudio(barWidth: geometry.size.width)
                     }
                 }
-                .onAppear(){
-                    viewModel.prepareAudio(barWidth: geometry.size.width)
+                .frame(height: 18)
+                
+                HStack{
+                    Text(viewModel.currentTime)
+                        .foregroundColor(Color("TextVeryLight"))
+                        .font(.custom("Roboto-Medium", size: 18))
+
+                    Spacer()
+
+                    Text(viewModel.totalDuration)
+                        .foregroundColor(Color("Text"))
+                        .font(.custom("Roboto-Medium", size: 18))
                 }
             }
-            .frame(height: 18)
         }
         .padding(15)
         .background(Color("PlayerBackground"))

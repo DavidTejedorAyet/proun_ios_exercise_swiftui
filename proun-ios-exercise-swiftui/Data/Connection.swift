@@ -74,7 +74,7 @@ internal func errorWith(code: Int, message: String) -> Error {
 }
 
 internal func errorMessageWith(_ response: Any?, httpStatus: Int) -> String {
-    var message = "Something was wrong... httpStatus is \(httpStatus)"
+    let message = "Something was wrong... httpStatus is \(httpStatus)"
     print(message)
     return message
 }

@@ -23,12 +23,12 @@ struct POIDetailPopUp: View {
             Color.black.opacity(0.5)
             VStack(spacing: 0) {
                 HStack {
-                    //                    Image(uiImage: UIImage(withContentsOfUrl: viewModel.selectedPOI?.category?.icon?.url ?? "") ?? UIImage())
-                    Image("menu")
+                    
+                    Image(uiImage: UIImage(withContentsOfUrl: viewModel.selectedPOI?.category?.icon?.url ?? "") ?? UIImage())
                         .resizable()
-                        .frame(width: 28, height: 28)
+                        .frame(width: 34, height: 34)
                         .foregroundColor(Color("TextLight"))
-
+                    
                     
                     Text(viewModel.selectedPOI?.name ?? "NOMBRE")
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -37,7 +37,7 @@ struct POIDetailPopUp: View {
                         .textCase(.uppercase)
                         .multilineTextAlignment(.leading)
                         .padding(.top, 8)
-
+                    
                     
                     Image("cross")
                         .resizable()
@@ -50,23 +50,50 @@ struct POIDetailPopUp: View {
                 .frame(height: 48)
                 .padding(15)
                 
-                ScrollView() {
-                    VStack(spacing: 0) {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 0) {
                         
                         ImageCarouselView(images: images)
-                            .frame(height: 220)
+                            .frame(height: 240)
                         
-//                        AudioPlayerView(viewModel: AudioPlayerViewModel(audio: viewModel.selectedPOI?.audio ?? MediaModel()))
-//                            .padding(15)
-//                            .frame(height: 102)
-//                            .background(Color.white)
-                        Color.gray
-                            .frame(height:102)
+                        AudioPlayerView(viewModel: AudioPlayerViewModel(audio: viewModel.selectedPOI?.audio ?? MediaModel()))
+                            .padding(16)
+                            .frame(height: 102)
+                            .background(Color.white)
                         
                         Color("Separator")
                             .frame(height:1)
                         
-//                        MapView(pois: <#T##Binding<[POIModel]>#>, districtCoordinates: <#T##Binding<String>#>, detailPopUpDelegate: <#T##POIDetailPopUpDelegate?#>, viewModel: <#T##MapViewModel#>)
+                        HStack(spacing: 4) {
+                            Text("Acerca de este local:")
+                                .foregroundColor(Color("Text"))
+                                .font(.custom("Roboto-Medium", size: 18))
+
+                            Spacer()
+                            
+                            Text(String(viewModel.selectedPOI?.likesCount ?? 0))
+                                .foregroundColor(Color("TextVeryLight"))
+                                .font(.custom("Roboto-Medium", size: 18))
+                            
+                            Image("like")
+                                .resizable()
+                                .frame(width: 19, height: 16)
+                                .foregroundColor(Color("TextVeryLight"))
+ 
+                        }
+                        .padding(16)
+                        
+                        Text(viewModel.selectedPOI?.description ?? "Descripción")
+                            .foregroundColor(Color("TextVeryLight"))
+                            .font(.custom("Roboto-Medium", size: 18))
+                            .padding(.horizontal,16)
+
+                        MapView(viewModel: MapViewModel(selectedPOI: viewModel.selectedPOI ?? POIModel()))
+                            .frame(height: 180)
+                            .padding(16)
+
+                        EventTabbarView()
+                            .frame(height: 380)
                     }
                 }
                 

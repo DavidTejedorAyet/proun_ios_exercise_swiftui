@@ -42,15 +42,16 @@ struct NavbarView: View {
             }
             .padding(.horizontal, 20)
             .padding(.top,UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0)
-
+            
         }
         .ignoresSafeArea()
-        .frame(height: 88)
+        .frame(height: 60)
     }
 }
 
 struct NavbarView_Previews: PreviewProvider {
     static var previews: some View {
-        NavbarView()
+        MainView()
+        
     }
 }

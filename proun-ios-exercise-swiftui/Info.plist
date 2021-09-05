@@ -11,7 +11,9 @@
 	<string>Light</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Roboto-Regular.ttf</string>
 		<string>TradeGothicLTStd-BdCn20.otf</string>
+		<string>Roboto-Medium.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

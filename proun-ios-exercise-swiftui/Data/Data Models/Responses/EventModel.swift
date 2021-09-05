@@ -41,4 +41,9 @@ class EventModel: BaseModel {
         case address
         case isLiked
     }
+    
+    init(title: String, date: String) {
+        self.title = title
+        self.fromDatetime = date
+    }
 }

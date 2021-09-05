@@ -17,8 +17,6 @@ class MapViewModel: NSObject, ObservableObject, GMSMapViewDelegate {
     @Published var districtPolyline: GMSPolyline?
     @Published var districtPolygon: GMSPolygon?
     @Published var path: GMSMutablePath?
-    @Published var selectedPOI: POIModel?
-
     
     var detailPopUpDelegate: POIDetailPopUpDelegate?
     var pois: [POIModel] = []
@@ -26,8 +24,13 @@ class MapViewModel: NSObject, ObservableObject, GMSMapViewDelegate {
     var isDetailMap = false
 
     init(selectedPOI: POIModel) {
-        self.selectedPOI = selectedPOI
+        self.pois = [selectedPOI]
         isDetailMap = true
+        
+        super.init()
+        
+        self.markers = createMapMarkers(pois: pois)
+
     }
     
     init(pois: [POIModel], districtCoordinates: String, detailPopUpDelegate: POIDetailPopUpDelegate) {
@@ -101,6 +104,7 @@ class MapViewModel: NSObject, ObservableObject, GMSMapViewDelegate {
             
             DispatchQueue.main.async {
                 marker.icon = image
+                marker.setIconSize(scaledToSize: CGSize(width: 50, height: 75))
             }
         }
     }
