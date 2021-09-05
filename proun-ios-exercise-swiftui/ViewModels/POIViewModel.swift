@@ -15,11 +15,12 @@ class POIViewModel: ObservableObject {
     @Published var districtCoordinates = ""
     @Published var districtName = ""
     @Published var poisCount = ""
-     
+    @Published var isLoading: Bool = false
     @Published var showPopUp = false
     @Published var selectedPOI: POIModel?
     
     func downloadData() {
+        isLoading = true
         requestManager.getDistrictPOIs() {
             response in
             switch response {
@@ -28,6 +29,7 @@ class POIViewModel: ObservableObject {
                 self.districtCoordinates = data.coordinates ?? ""
                 self.districtName = data.name ?? ""
                 self.poisCount = String(data.poisCount ?? 0)
+                self.isLoading = false
             case .error(let error):
                 print("*** \(error.localizedDescription)")
             }

@@ -11,7 +11,7 @@ struct POIsListView: View {
     var viewModel: POIViewModel
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             HStack {
                 Text("Ordenar:")
                     .foregroundColor(Color("TextVeryLight"))
@@ -27,9 +27,9 @@ struct POIsListView: View {
                     .frame(width: 30, height: 30)
                     .foregroundColor(.white)
             }
-            .frame(height: 50)
             .padding(.horizontal, 15)
-            .background(Color("Text"))
+            .frame(height: 50)
+            .background(Color("BackgroundListHeader"))
             
             List {
                 ForEach(viewModel.pois, id: \.self.id) { poi in
@@ -49,6 +49,6 @@ struct POIsListView: View {
 
 struct POIsListView_Previews: PreviewProvider {
     static var previews: some View {
-        POIsListView(viewModel: POIViewModel())
+        MainView(isShowingMap: false, viewModel: POIViewModel())
     }
 }
