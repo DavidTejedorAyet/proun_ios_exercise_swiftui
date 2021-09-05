@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var isShowingMap = true
+    
     @ObservedObject var viewModel = POIViewModel()
     
     

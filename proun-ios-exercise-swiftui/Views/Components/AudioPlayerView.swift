@@ -53,7 +53,7 @@ struct AudioPlayerView : View {
                         }
                     }
                     .onAppear(){
-//                        viewModel.prepareAudio(barWidth: geometry.size.width)
+                        viewModel.prepareAudio(barWidth: geometry.size.width)
                     }
                 }
                 .frame(height: 18)

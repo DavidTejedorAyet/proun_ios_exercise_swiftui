@@ -24,6 +24,9 @@ class AudioPlayerViewModel: ObservableObject {
     }
     
     func onTapPlayButton() {
+        
+        guard let player = player else { return }
+        
         if player.isPlaying {
             player.pause()
             isPlaying = false

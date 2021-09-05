@@ -18,9 +18,11 @@ class POIViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var showPopUp = false
     @Published var selectedPOI: POIModel?
+    @Published var viewsNeedUpdate: Bool = false
     
     func downloadData() {
         isLoading = true
+        
         requestManager.getDistrictPOIs() {
             response in
             switch response {
@@ -30,6 +32,7 @@ class POIViewModel: ObservableObject {
                 self.districtName = data.name ?? ""
                 self.poisCount = String(data.poisCount ?? 0)
                 self.isLoading = false
+                self.viewsNeedUpdate = true
             case .error(let error):
                 print("*** \(error.localizedDescription)")
             }

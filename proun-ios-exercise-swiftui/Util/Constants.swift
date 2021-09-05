@@ -1,9 +1,8 @@
 //
 //  Constants.swift
-//  Temp
+//  proun-ios-exercise-swiftui
 //
-//  Created by Miguel Estévez on 08/11/2018.
-//  Copyright © 2018 Vanadis. All rights reserved.
+//  Created by David on 5/9/21.
 //
 
 import Foundation

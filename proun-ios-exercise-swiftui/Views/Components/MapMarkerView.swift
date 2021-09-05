@@ -62,9 +62,7 @@ struct MapMarkerView: View {
 
         }
         .frame(width: 340, height: 140)
-        .onTapGesture {
-            print("*** ON TAP")
-        }
+        
     }
 }
 

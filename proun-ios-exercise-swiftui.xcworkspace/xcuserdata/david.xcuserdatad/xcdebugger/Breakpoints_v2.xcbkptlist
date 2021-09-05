@@ -62,8 +62,8 @@
             filePath = "proun-ios-exercise-swiftui/ViewModels/MapViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "applyImage(from:to:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "proun-ios-exercise-swiftui/ViewModels/MapViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "applyImage(from:to:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "proun-ios-exercise-swiftui/ViewModels/MapViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "applyImage(from:to:)"
             landmarkType = "7">
             <Locations>
@@ -158,8 +158,8 @@
             filePath = "proun-ios-exercise-swiftui/ViewModels/MapViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "mapView(_:didTapInfoWindowOf:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -183,70 +183,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6275989D-479A-42DE-AC9D-460FE0658580"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "proun-ios-exercise-swiftui/ViewModels/AudioPlayerViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "prepareAudio(barWidth:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6275989D-479A-42DE-AC9D-460FE0658580 - 80bf0a7bd0a60aa6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "proun_ios_exercise_swiftui.AudioPlayerViewModel.prepareAudio(barWidth: CoreGraphics.CGFloat) -&gt; ()"
-                  moduleName = "proun-ios-exercise-swiftui"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/david/Proyectos/iOS/proun-ios-exercise-swiftui/proun-ios-exercise-swiftui/ViewModels/AudioPlayerViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "1244">
-               </Location>
-               <Location
-                  uuid = "6275989D-479A-42DE-AC9D-460FE0658580 - e023a41582ae0acd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSTimer) -&gt; () in proun_ios_exercise_swiftui.AudioPlayerViewModel.prepareAudio(barWidth: CoreGraphics.CGFloat) -&gt; ()"
-                  moduleName = "proun-ios-exercise-swiftui"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/david/Proyectos/iOS/proun-ios-exercise-swiftui/proun-ios-exercise-swiftui/ViewModels/AudioPlayerViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4A275887-FFE1-420B-A070-BACF7BAC7CDF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "proun-ios-exercise-swiftui/ViewModels/AudioPlayerViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "prepareAudio(barWidth:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B5A6C977-A580-464A-9815-C3E65BDE986C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -254,8 +190,8 @@
             filePath = "proun-ios-exercise-swiftui/ViewModels/AudioPlayerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "playerDidFinishPlaying(notification:)"
             landmarkType = "7">
          </BreakpointContent>

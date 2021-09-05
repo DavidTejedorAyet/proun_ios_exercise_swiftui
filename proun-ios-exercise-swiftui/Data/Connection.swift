@@ -1,9 +1,8 @@
 //
 //  File.swift
-//  BdeoSDK
+//  proun-ios-exercise-swiftui
 //
-//  Created by Miguel Estévez on 23/05/2019.
-//  Copyright © 2019 Miguel Estévez. All rights reserved.
+//  Created by David on 5/9/21.
 //
 
 import Foundation

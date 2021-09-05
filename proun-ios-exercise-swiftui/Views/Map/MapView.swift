@@ -10,8 +10,8 @@ import GoogleMaps
 
 struct MapView: UIViewRepresentable {
     
-    var viewModel: MapViewModel
-    
+    @ObservedObject var viewModel: MapViewModel
+    @State var needsUpdate = true
     func makeUIView(context: Context) -> GMSMapView {
         
         let mapView = GMSMapView(frame: .zero)
@@ -20,6 +20,10 @@ struct MapView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: GMSMapView, context: Context) {
+                
+        guard !viewModel.pois.isEmpty else { return }
+        
+        print("****", viewModel.needsUpdate)
         uiView.delegate = viewModel
         uiView.clear()
         
@@ -33,7 +37,6 @@ struct MapView: UIViewRepresentable {
         }
         
         drawPOIs(in: uiView)
-        
     }
     
     func centerMapOn(path: GMSMutablePath, mapView: GMSMapView) {

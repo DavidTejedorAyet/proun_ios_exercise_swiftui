@@ -15,8 +15,11 @@ struct ImageCarouselView: View {
         GeometryReader { geometry in
             TabView {
                 ForEach(images, id: \.self.id) { image in
-                    Image(uiImage: UIImage(withContentsOfUrl: image.url ?? "") ?? UIImage())
-                        .resizable()
+                    AsyncImage(
+                        url: URL(string: image.url ?? "")!,
+                        placeholder: { Text("Cargando ...") },
+                        image: { Image(uiImage: $0).resizable() }
+                    )
                         .scaledToFill()
                         .tag(image.id)
                 }

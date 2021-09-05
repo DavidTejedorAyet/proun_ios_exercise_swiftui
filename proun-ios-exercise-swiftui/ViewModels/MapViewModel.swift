@@ -22,6 +22,7 @@ class MapViewModel: NSObject, ObservableObject, GMSMapViewDelegate {
     var pois: [POIModel] = []
     var districtCoordinates: String = ""
     var isDetailMap = false
+    var needsUpdate = true
 
     init(selectedPOI: POIModel) {
         self.pois = [selectedPOI]

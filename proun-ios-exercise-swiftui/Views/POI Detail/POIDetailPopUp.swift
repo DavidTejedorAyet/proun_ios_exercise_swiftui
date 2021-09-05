@@ -12,7 +12,7 @@ protocol POIDetailPopUpDelegate {
 
 struct POIDetailPopUp: View {
     
-    @ObservedObject var viewModel: POIViewModel
+    @StateObject var viewModel: POIViewModel
     @State var isPlayingAudio: Bool = false
     
     var body: some View {
@@ -24,11 +24,13 @@ struct POIDetailPopUp: View {
             VStack(spacing: 0) {
                 HStack {
                     
-                    Image(uiImage: UIImage(withContentsOfUrl: viewModel.selectedPOI?.category?.icon?.url ?? "") ?? UIImage())
-                        .resizable()
-                        .frame(width: 34, height: 34)
-                        .foregroundColor(Color("TextLight"))
-                    
+                    AsyncImage(
+                        url: URL(string: viewModel.selectedPOI?.category?.icon?.url ?? "")!,
+                        placeholder: { Text("Cargando ...") },
+                        image: { Image(uiImage: $0).resizable() }
+                    )
+                    .frame(width: 34, height: 34)
+                    .foregroundColor(Color("TextLight"))
                     
                     Text(viewModel.selectedPOI?.name ?? "NOMBRE")
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -69,7 +71,7 @@ struct POIDetailPopUp: View {
                                 Text("Acerca de este local:")
                                     .foregroundColor(Color("Text"))
                                     .font(.custom("Roboto-Medium", size: 16))
-
+                                
                                 Spacer()
                                 
                                 Text(String(viewModel.selectedPOI?.likesCount ?? 0))
@@ -80,7 +82,7 @@ struct POIDetailPopUp: View {
                                     .resizable()
                                     .frame(width: 19, height: 16)
                                     .foregroundColor(Color("TextVeryLight"))
-     
+                                
                             }
                             
                             Text(viewModel.selectedPOI?.description ?? "Descripción")
@@ -88,11 +90,11 @@ struct POIDetailPopUp: View {
                                 .font(.custom("Roboto-Medium", size: 16))
                         }
                         .padding(18)
-
+                        
                         MapView(viewModel: MapViewModel(selectedPOI: viewModel.selectedPOI ?? POIModel()))
                             .frame(height: 190)
                             .padding(18)
-
+                        
                         EventTabbarView()
                             .frame(minHeight: 300, maxHeight: .infinity)
                     }

@@ -1,9 +1,9 @@
 
 //
 //  TabBar.swift
-//  Chanel (iOS)
+//  proun-ios-exercise-swiftui
 //
-//  Created by Balaji on 04/02/21.
+//  Created by David on 5/9/21.
 //
 
 import SwiftUI

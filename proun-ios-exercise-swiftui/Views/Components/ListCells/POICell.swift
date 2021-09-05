@@ -13,9 +13,13 @@ struct POICell: View {
     var body: some View {
         
         HStack {
-            Image(uiImage: UIImage(withContentsOfUrl: poi.image?.url ?? "") ?? UIImage())
-                .resizable()
-                .frame(width:70, height: 70)
+            AsyncImage(
+                url: URL(string: poi.image?.url ?? "")!,
+                            placeholder: { Text("Cargando ...") },
+                            image: { Image(uiImage: $0).resizable() }
+                         )
+            .frame(width:70, height: 70)
+
             
             Text(poi.name ?? "name")
                 .foregroundColor(Color("Text"))
