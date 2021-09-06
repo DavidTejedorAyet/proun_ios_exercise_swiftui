@@ -20,7 +20,7 @@
 		6303736E26E2E32C005F19E2 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303736D26E2E32C005F19E2 /* AudioPlayerView.swift */; };
 		6303A18E26E0E38B008A16BB /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303A18D26E0E38B008A16BB /* TabbarView.swift */; };
 		6303A19026E0EB64008A16BB /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303A18F26E0EB64008A16BB /* MapViewModel.swift */; };
-		630F017726E380BF0012A45B /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630F017626E380BF0012A45B /* AVPlayer.swift */; };
+		630A3CA126E60D0200D32FD7 /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A3CA026E60D0200D32FD7 /* AVPlayer.swift */; };
 		630F017926E3B2200012A45B /* AudioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630F017826E3B2200012A45B /* AudioPlayerViewModel.swift */; };
 		630F017B26E3C6060012A45B /* GMSMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630F017A26E3C6060012A45B /* GMSMarker.swift */; };
 		630F017F26E3D4710012A45B /* EventTabBarPaginatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630F017D26E3D4710012A45B /* EventTabBarPaginatorView.swift */; };
@@ -91,7 +91,7 @@
 		6303736D26E2E32C005F19E2 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		6303A18D26E0E38B008A16BB /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		6303A18F26E0EB64008A16BB /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		630F017626E380BF0012A45B /* AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AVPlayer.swift; path = ../../../../../AVPlayer.swift; sourceTree = "<group>"; };
+		630A3CA026E60D0200D32FD7 /* AVPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayer.swift; sourceTree = "<group>"; };
 		630F017826E3B2200012A45B /* AudioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewModel.swift; sourceTree = "<group>"; };
 		630F017A26E3C6060012A45B /* GMSMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSMarker.swift; sourceTree = "<group>"; };
 		630F017D26E3D4710012A45B /* EventTabBarPaginatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTabBarPaginatorView.swift; sourceTree = "<group>"; };
@@ -375,7 +375,7 @@
 				630F017A26E3C6060012A45B /* GMSMarker.swift */,
 				6303735C26E147D3005F19E2 /* Double.swift */,
 				6303736226E22A99005F19E2 /* UIImage+Image.swift */,
-				630F017626E380BF0012A45B /* AVPlayer.swift */,
+				630A3CA026E60D0200D32FD7 /* AVPlayer.swift */,
 				63B0C4BE26E4E4200052605B /* Date.swift */,
 				63D71AAC26E4F70300E94C51 /* CMTime.swift */,
 			);
@@ -709,6 +709,7 @@
 				633A1FFB26E00AEE00962421 /* POIModel.swift in Sources */,
 				633A200D26E0125300962421 /* Constants.swift in Sources */,
 				633A201126E0CB6A00962421 /* MapView.swift in Sources */,
+				630A3CA126E60D0200D32FD7 /* AVPlayer.swift in Sources */,
 				633A200126E00F9900962421 /* RequestManager.swift in Sources */,
 				6303A19026E0EB64008A16BB /* MapViewModel.swift in Sources */,
 				63B0C4BF26E4E4200052605B /* Date.swift in Sources */,
@@ -722,7 +723,6 @@
 				630F018A26E3E21E0012A45B /* EventCell.swift in Sources */,
 				6303736826E247CD005F19E2 /* MapMarkerView.swift in Sources */,
 				6303736126E223EC005F19E2 /* GMSPolyline.swift in Sources */,
-				630F017726E380BF0012A45B /* AVPlayer.swift in Sources */,
 				633A201B26E0D36300962421 /* NavbarView.swift in Sources */,
 				6303736326E22A99005F19E2 /* UIImage+Image.swift in Sources */,
 				633A1FC226DFDD9E00962421 /* proun_ios_exercise_swiftuiApp.swift in Sources */,
